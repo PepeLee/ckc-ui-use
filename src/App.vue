@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { ref, onMounted } from 'vue';
   import {type Message, CkcAnswer } from 'ckc-ui'
-  import { message } from './const/mock-data/message8';
+  import { message } from './const/mock-data/messageA';
   import { setCustomComponents } from 'markstream-vue';
   import 'markstream-vue/index.css';
   import HelloWorld from './components/HelloWorld.vue';
@@ -23,10 +23,13 @@
     };
     addMessage();
   });
+  //   onMounted(() => {
+  //     messages.value = message as Message[];
+  // });
 </script>
 
 <template>
-  <CkcAnswer :messages="messages" render-custom-id="docs" :custom-html-tags="['custom-data']">
+  <CkcAnswer :history-messages="messages" render-custom-id="docs" :custom-html-tags="['custom-data']">
     <template #actions="actionsProps">
         <button @click="messages = []">清空消息</button>
         {{ actionsProps.messageViewInfo }}
